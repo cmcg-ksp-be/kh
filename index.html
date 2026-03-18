@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Thiệp Cưới - Hạnh Phúc Trọn Vẹn</title>
+    <!-- Preconnect & DNS-Prefetch cho Font và CDN -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playball&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css?v=1.0.1">
+
+    <!-- FontAwesome icon -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </noscript>
+</head>
+
+<body>
+    <!-- Top Bar -->
+    <!-- <div class="top-header">
+        <h2 id="website-title" class="data-title">Salim & Hải Long Wedding</h2>
+    </div> -->
+
+    <!-- Hero Image 1 -->
+    <section class="hero-image-container blur-in-scroll">
+        <div id="hero-img" class="hero-image"></div>
+
+        <!-- Text Overlay on Hero Image -->
+        <div class="hero-overlay-text">
+            <h1 class="hero-names data-groomName"></h1>
+            <span class="hero-ampersand">&</span>
+            <h1 class="hero-names data-brideName"></h1>
+        </div>
+    </section>
+
+    <!-- Event Detail Section -->
+    <section class="event-details white-section floral-bg text-center flip-up-scroll">
+        <div class="container">
+            <h2 class="cursive-heading" style="color: var(--primary-blue); margin-bottom: 1.5rem; font-size: 4rem;">Save
+                The Date</h2>
+            <h3 class="event-subtitle data-eventTitle mb-2"></h3>
+            <h4 class="event-time data-eventTime mb-2"></h4>
+            <div class="event-date-large">
+                <div class="date-header data-eventDayOfWeek mb-2"></div>
+                <div class="date-middle">
+                    <span class="date-month data-eventMonth"></span>
+                    <span class="date-day data-eventDate"></span>
+                    <span class="date-year data-eventYear"></span>
+                </div>
+                <div class="date-lunar data-eventLunarDate mt-2 mb-3"></div>
+            </div>
+
+            <div class="wedding-rings mb-3">
+                <i class="fa-solid fa-ring ring-icon"></i>
+            </div>
+
+            <h3 class="event-venue data-eventVenue mt-3"></h3>
+            <p class="event-address data-eventAddress mt-2"></p>
+            <a href="#" id="event-map-link" target="_blank" class="btn btn-outline-blue map-btn mt-4"><i
+                    class="fa-solid fa-location-dot"></i> CHỈ ĐƯỜNG</a>
+        </div>
+    </section>
+
+    <!-- Mid Hero Image -->
+    <section class="hero-image-container blur-in-scroll">
+        <div id="event-middle-img" class="hero-image"></div>
+    </section>
+
+    <!-- Calendar Section -->
+    <section class="calendar-section blue-section text-center py-5 blur-in-scroll">
+        <div class="container">
+            <h2 class="cursive-heading text-white data-calendarMonth mb-4"></h2>
+
+            <div class="calendar-grid zoom-out-scroll">
+                <div class="calendar-header-row">
+                    <span>MON</span><span>TUE</span><span>WED</span><span>THUR</span><span>FRI</span><span>SAT</span><span>SUN</span>
+                </div>
+                <div class="calendar-days-row" id="calendar-days-container">
+                    <!-- Javascript will populate days here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Memories Section -->
+    <section class="memories-section blue-section text-center py-5 pt-0 blur-in-scroll">
+        <div class="container flip-up-scroll">
+            <h2 class="section-title text-white data-memoriesTitle mb-3"></h2>
+            <p class="memories-desc text-white data-memoriesDesc mb-4"></p>
+        </div>
+
+        <div class="container pb-3 border-bottom-white">
+            <!-- Slideshow Container -->
+            <div class="memories-slideshow" id="memories-slideshow">
+                <div class="slideshow-track" id="slideshow-track">
+                    <!-- JS sẽ điền ảnh vào đây -->
+                </div>
+
+                <!-- Nút prev/next -->
+                <button class="mem-slide-btn mem-prev-btn" id="mem-prev-btn" aria-label="Ảnh trước">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="mem-slide-btn mem-next-btn" id="mem-next-btn" aria-label="Ảnh tiếp theo">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+
+                <!-- Dots indicator -->
+                <div class="slideshow-dots" id="slideshow-dots"></div>
+            </div>
+        </div>
+        <div class="container mt-4 blur-in-scroll">
+            <h3 class="full-album-title">FULL ALBUM</h3>
+        </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section class="rsvp-section white-section floral-bg text-center flip-up-scroll">
+        <div class="container">
+            <p class="rsvp-intro text-blue data-rsvpMessage mb-4 font-weight-500"></p>
+
+            <form id="rsvp-form" class="rsvp-form">
+                <div class="form-group blur-in-scroll">
+                    <input type="text" id="rsvp-name" class="form-control" placeholder="Tên của bạn" required>
+                </div>
+                <div class="form-group blur-in-scroll">
+                    <textarea id="rsvp-message" class="form-control" rows="3" placeholder="Gửi lời nhắn đến cô dâu chú rể"></textarea>
+                </div>
+                <div class="form-group blur-in-scroll">
+                    <select id="rsvp-attendance" class="form-control" required>
+                        <option value="" disabled selected>Bạn sẽ đến chứ?</option>
+                        <option value="yes">Chắc chắn rồi</option>
+                        <option value="no">Tiếc quá, mình không đến được</option>
+                    </select>
+                </div>
+                <div class="form-group blur-in-scroll">
+                    <select id="rsvp-guests" class="form-control">
+                        <option value="" disabled selected>Bạn tham dự cùng ai?</option>
+                        <option value="1">1 người</option>
+                        <option value="2">2 người</option>
+                        <option value="other">Bế cả gia đình</option>
+                    </select>
+                </div>
+                <div class="form-group blur-in-scroll">
+                    <select id="rsvp-guest-of" class="form-control">
+                        <option value="" disabled selected>Bạn là khách mời của ai?</option>
+                        <option value="groom">Nhà trai</option>
+                        <option value="bride">Nhà gái</option>
+                        <option value="both">Cả hai</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary-blue mt-4 w-100 blur-in-scroll">GỬI LỜI NHẮN</button>
+            </form>
+
+            <div id="rsvp-list" class="mt-5 text-left blur-in-scroll">
+                <h3 class="text-blue mb-3" style="font-family: var(--font-cursive); font-size: 3rem;">Lời Chúc Tốt Đẹp</h3>
+                <div id="rsvp-messages-container" class="rsvp-messages-container" style="text-align: left; padding: 10px;">
+                    <!-- Messages will be rendered here -->
+                </div>
+                <div class="text-center mt-3">
+                    <button type="button" id="load-more-rsvp-btn" class="btn btn-outline-blue" style="display: none; padding: 0.5rem 1.5rem; font-size: 0.9rem;">Xem thêm <i class="fa-solid fa-chevron-down" style="margin-left: 5px;"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inline QR Section -->
+    <section class="inline-qr-section blue-section text-center py-5 flip-up-scroll">
+        <div class="container">
+            <h2 class="cursive-heading text-white mb-4" style="font-size: 3.5rem;">Hộp Mừng Cưới</h2>
+            <div class="inline-qr-container">
+                <div class="qr-box">
+                    <h3 class="data-groomName text-blue mb-2"></h3>
+                    <img class="qr-image data-groomQr" src="" alt="Groom QR" loading="lazy">
+                    <!-- <p class="data-groomBank text-dark font-weight-500 mt-2"></p>
+                    <p class="data-groomAccount"></p> -->
+                </div>
+                <div class="qr-box mt-4-mobile">
+                    <h3 class="data-brideName text-blue mb-2"></h3>
+                    <img class="qr-image data-brideQr" src="" alt="Bride QR" loading="lazy">
+                    <!-- <p class="data-brideBank text-dark font-weight-500 mt-2"></p>
+                    <p class="data-brideAccount"></p> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countdown Block -->
+    <section class="countdown-section white-section floral-bg text-center flip-up-scroll py-5">
+        <div class="container">
+            <h2 class="cursive-heading text-blue mb-4" style="font-size: 4rem;">Countdown</h2>
+            <div class="countdown-content flex-center text-blue" style="font-size: 3.5rem; font-weight: 300;">
+                <span id="days">00</span>
+                <span class="mx-2">:</span>
+                <span id="hours">00</span>
+                <span class="mx-2">:</span>
+                <span id="minutes">00</span>
+                <span class="mx-2">:</span>
+                <span id="seconds">00</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Thank You Footer -->
+    <footer class="thank-you-footer blur-in-scroll">
+        <div class="thank-you-overlay"></div>
+        <!-- <img id="footer-img" src="" alt="Thank you" class="thank-you-bg" loading="lazy"> -->
+        <div class="thank-you-content container text-center text-white">
+            <p class="thank-you-text data-thankYouText"></p>
+            <h2 class="cursive-heading mt-4" style="font-size: 4rem;">Thank you!</h2>
+        </div>
+    </footer>
+
+    <!-- Floating Music Button -->
+    <button class="floating-music-btn" id="music-btn" aria-label="Bật/Tắt Nhạc" style="display: none;">
+        <i class="fa-solid fa-compact-disc"></i>
+    </button>
+    
+    <!-- YouTube Player Container (Hidden) -->
+    <audio id="bg-music" loop>
+        <source src="" type="audio/mpeg">
+    </audio>
+
+    <!-- Floating Gift Button -->
+    <button class="floating-gift-btn" onclick="openGiftModal()">
+        <img src="https://cdn-icons-png.flaticon.com/512/4213/4213958.png" alt="Quà cưới" loading="lazy">
+    </button>
+
+    <!-- Gift Modal (QR Codes) -->
+    <div id="gift-modal" class="modal">
+        <div class="modal-content text-center">
+            <span class="close-modal" onclick="closeGiftModal()">&times;</span>
+            <h2 class="cursive-heading text-blue mb-4">Hộp Mừng Cưới</h2>
+            <div class="qr-container">
+                <div class="qr-box">
+                    <h3 class="data-groomName text-blue mb-2"></h3>
+                    <img class="qr-image data-groomQr" src="" alt="Groom QR" loading="lazy">
+                    <!-- <p class="data-groomBank text-dark font-weight-500 mt-2"></p>
+                    <p class="data-groomAccount"></p> -->
+                </div>
+                <div class="qr-box mt-4">
+                    <h3 class="data-brideName text-blue mb-2"></h3>
+                    <img class="qr-image data-brideQr" src="" alt="Bride QR" loading="lazy">
+                    <!-- <p class="data-brideBank text-dark font-weight-500 mt-2"></p>
+                    <p class="data-brideAccount"></p> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Modal (Slideshow) -->
+    <div id="image-modal" class="modal">
+        <span class="close-modal text-white" style="z-index: 1011; right: 30px; top: 20px;"
+            onclick="closeImageModal()">&times;</span>
+
+        <div class="slideshow-btn prev-btn" onclick="prevSlide()">
+            <i class="fa-solid fa-chevron-left"></i>
+        </div>
+
+        <div class="modal-content image-modal-content" onclick="closeImageModal(event)">
+            <img id="full-screen-img" class="image-modal-img" src="" alt="Full Screen Memory" loading="lazy">
+        </div>
+
+        <div class="slideshow-btn next-btn" onclick="nextSlide()">
+            <i class="fa-solid fa-chevron-right"></i>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/config.js?v=1.0.1" defer></script>
+    <script src="js/main.js?v=1.0.1" defer></script>
+</body>
+
+</html>

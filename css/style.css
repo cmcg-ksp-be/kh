@@ -1,0 +1,1125 @@
+:root {
+    --primary-blue: #2d4766;
+    --text-white: #ffffff;
+    --text-dark: #2d4766;
+    --bg-white: #f8f9fa;
+    /* Slightly softer white */
+    --font-heading: 'Roboto', sans-serif;
+    --font-cursive: 'Playball', cursive;
+    --font-body: 'Roboto', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    max-width: 100%;
+    /* Ngăn mọi phần tử tràn ngang khỏi container */
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-dark);
+    background-color: var(--bg-white);
+    line-height: 1.6;
+    overflow-x: hidden;
+    /* Chặn scroll ngang trên mọi thiết bị */
+    scroll-behavior: smooth;
+}
+
+/* Tối ưu hiển thị responsive */
+.container {
+    width: 90%;
+    max-width: 600px;
+    /* Thu hẹp lại để trông giống mobile app/thiệp cưới dọc */
+    margin: 0 auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-white {
+    color: var(--text-white);
+}
+
+.text-blue {
+    color: var(--primary-blue);
+}
+
+.py-5 {
+    padding: 4rem 0;
+}
+
+.pt-0 {
+    padding-top: 0 !important;
+}
+
+.pb-3 {
+    padding-bottom: 3rem;
+}
+
+.border-bottom-white {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.mt-2 {
+    margin-top: 0.5rem;
+}
+
+.mt-3 {
+    margin-top: 1rem;
+}
+
+.mt-4 {
+    margin-top: 1.5rem;
+}
+
+.mb-2 {
+    margin-bottom: 0.5rem;
+}
+
+.mb-3 {
+    margin-bottom: 1rem;
+}
+
+.mb-4 {
+    margin-bottom: 2rem;
+}
+
+.mx-2 {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.blue-section {
+    background-color: var(--primary-blue);
+    position: relative;
+    /* Dùng box-shadow nhẹ đè lên khối trên dưới để tạo không gian chìm nổi */
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.05), 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.white-section {
+    background-color: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+/* Mẫu nền hoa cỏ chìm (Floral Background trick) */
+.floral-bg {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.floral-bg::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    right: -50px;
+    bottom: -50px;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0 C60 20 80 40 100 50 C80 60 60 80 50 100 C40 80 20 60 0 50 C20 40 40 20 50 0 Z' fill='%232d4766' fill-opacity='0.03'/%3E%3C/svg%3E");
+    background-size: 150px 150px;
+    z-index: -1;
+    transform: rotate(15deg);
+}
+
+/* Header */
+.top-header {
+    background-color: var(--primary-blue);
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    font-family: var(--font-body);
+    font-weight: 500;
+    letter-spacing: 1px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.data-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* Hero Images */
+.hero-image-container {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+    /* Mở rộng khung để thấy được nhiều hơn (zoom out) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center 20%;
+    /* Kéo lên để thấy khuôn mặt 2 người */
+    background-repeat: no-repeat;
+    animation: slowZoom 15s infinite alternate ease-in-out;
+}
+
+@keyframes slowZoom {
+    0% {
+        transform: scale(1.05);
+        /* Bắt đầu to hơn, luôn fill đầy container */
+        /* Không để scale < 1 tránh lộ viền trắng */
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Tên cô dâu chú rể trên ảnh Hero */
+.hero-overlay-text {
+    position: absolute;
+    bottom: 5%;
+    /* Căn dưới */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
+    z-index: 10;
+    width: 100%;
+
+    /* Hiển thị chữ ngang trên màn hình máy tính */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    /* Thêm shadow để chữ nổi bật trên mọi nền ảnh */
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.hero-names {
+    font-family: var(--font-cursive);
+    font-size: 13rem;
+    /* Phóng cực to cho màn hình máy tính */
+    font-weight: 400;
+    line-height: 1;
+    margin: 0;
+}
+
+.hero-ampersand {
+    font-family: var(--font-cursive);
+    font-size: 9rem;
+    margin: 0 10px;
+    font-weight: 400;
+    opacity: 0.85;
+    line-height: 1;
+    align-self: center;
+    /* Căn giữa theo chiều dọc trong flex */
+    display: flex;
+    align-items: center;
+}
+
+/* Event Details */
+.event-subtitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+    letter-spacing: 2px;
+}
+
+.event-time {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    letter-spacing: 1.5px;
+    margin-bottom: 1rem;
+}
+
+.event-date-large {
+    color: var(--primary-blue);
+    margin: 1.5rem auto;
+    display: inline-block;
+    border-top: 1px solid rgba(45, 71, 102, 0.3);
+    border-bottom: 1px solid rgba(45, 71, 102, 0.3);
+    padding: 20px 0;
+    width: 90%;
+}
+
+.date-header {
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+}
+
+.date-middle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-family: var(--font-heading);
+}
+
+.date-month,
+.date-year {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(45, 71, 102, 0.3);
+    border-top: 1px solid rgba(45, 71, 102, 0.3);
+    padding: 8px 0;
+}
+
+.date-day {
+    font-size: 4.5rem;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.date-lunar {
+    font-style: italic;
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.wedding-rings {
+    /* Hiệu ứng nhịp đập trái tim cho nhẫn */
+    animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+}
+
+.ring-icon {
+    font-size: 2.2rem;
+    color: var(--primary-blue);
+}
+
+.event-venue {
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--primary-blue);
+}
+
+.event-address {
+    font-size: 1rem;
+    color: #444;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+    border: none;
+    letter-spacing: 1px;
+}
+
+.btn-outline-blue {
+    background-color: transparent;
+    border: 1px solid var(--primary-blue);
+    color: var(--primary-blue);
+}
+
+.btn-outline-blue:hover {
+    background-color: var(--primary-blue);
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(45, 71, 102, 0.2);
+}
+
+.btn-primary-blue {
+    background-color: var(--primary-blue);
+    color: #fff;
+    border: 1px solid var(--primary-blue);
+}
+
+.btn-primary-blue:hover {
+    background-color: #1f3147;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Calendar */
+.cursive-heading {
+    font-family: var(--font-cursive);
+    font-size: 4.5rem;
+    font-weight: 400;
+    line-height: 1.2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-grid {
+    color: white;
+    max-width: 350px;
+    margin: 0 auto;
+    font-family: var(--font-body);
+}
+
+.calendar-header-row,
+.calendar-days-row {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.calendar-header-row span {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    padding-bottom: 20px;
+    opacity: 0.8;
+}
+
+.calendar-days-row span {
+    font-size: 1.1rem;
+    padding: 12px 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.calendar-days-row span:hover:not(:empty) {
+    background-color: rgba(255, 255, 255, 0.1);
+    cursor: default;
+}
+
+.calendar-days-row span.wedding-day {
+    font-weight: bold;
+    color: white;
+}
+
+.calendar-days-row span.wedding-day::after {
+    content: '\f004';
+    /* FontAwesome Heart */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 400;
+    position: absolute;
+    font-size: 2.2rem;
+    color: rgba(255, 255, 255, 0.4);
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: heartBeat 1.5s infinite alternate;
+}
+
+@keyframes heartBeat {
+    from {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    to {
+        transform: translate(-50%, -50%) scale(1.15);
+    }
+}
+
+/* Memories */
+.section-title {
+    font-family: var(--font-cursive);
+    font-size: 3.5rem;
+    font-weight: 400;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.memories-desc {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    opacity: 0.9;
+    text-align: justify;
+    text-align-last: center;
+}
+
+.full-album-title {
+    font-size: 1.4rem;
+    letter-spacing: 4px;
+    font-weight: 500;
+    color: white;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================
+   OUR MEMORIES SLIDESHOW
+   ============================================ */
+.memories-slideshow {
+    position: relative;
+    width: 100%;
+    margin: 1.5rem auto 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+    aspect-ratio: 16 / 9;
+    background: rgba(0,0,0,0.3);
+}
+
+.slideshow-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+.slide-item {
+    min-width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.slide-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25%; /* Căn ảnh lên trên, tránh bị cắt quá nhiều phần đầu */
+    display: block;
+    cursor: pointer;
+    transition: transform 0.4s ease;
+}
+
+.slide-item img:hover {
+    transform: scale(1.04);
+}
+
+/* Nút prev / next trong slideshow */
+.mem-slide-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.25s, transform 0.25s;
+    z-index: 10;
+    outline: none;
+}
+
+.mem-slide-btn:hover {
+    background: rgba(255, 255, 255, 0.35);
+    transform: translateY(-50%) scale(1.12);
+}
+
+.mem-prev-btn { left: 12px; }
+.mem-next-btn { right: 12px; }
+
+/* Dots indicator */
+.slideshow-dots {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 7px;
+    z-index: 10;
+}
+
+.slide-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.45);
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    border: none;
+    padding: 0;
+    outline: none;
+}
+
+.slide-dot.active {
+    background: #fff;
+    transform: scale(1.35);
+}
+
+
+
+
+/* RSVP Form */
+.rsvp-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.rsvp-intro {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.rsvp-form {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 1.1rem 1.5rem;
+    border: 1px solid rgba(45, 71, 102, 0.4);
+    border-radius: 30px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+    color: var(--primary-blue);
+    outline: none;
+    transition: all 0.3s;
+}
+
+.form-control:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 10px rgba(45, 71, 102, 0.1);
+}
+
+.form-control::placeholder {
+    color: rgba(45, 71, 102, 0.6);
+}
+
+textarea.form-control {
+    border-radius: 20px;
+    resize: vertical;
+    min-height: 100px;
+}
+
+select.form-control {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232d4766' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1.5rem center;
+    background-size: 1em;
+    cursor: pointer;
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    /* Ẩn mặc định */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(31, 49, 71, 0.85);
+    /* Nền xanh đen mờ */
+    backdrop-filter: blur(8px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.show-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: #f8f9fa;
+    margin: auto;
+    padding: 20px 10px;
+    border-radius: 0;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    transform: translateY(50px) scale(0.9);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal.show-modal .modal-content {
+    transform: translateY(0) scale(1);
+}
+
+/* Image Lightbox Specifics */
+.image-modal-content {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    max-width: 100vw !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    transform: none !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    border-radius: 0 !important;
+}
+
+.image-modal-img {
+    max-width: 100vw;
+    max-height: 100vh;
+    border-radius: 0;
+    object-fit: contain;
+    box-shadow: none;
+}
+
+/* Slideshow Buttons */
+.slideshow-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1010;
+}
+
+.slideshow-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+@media (max-width: 768px) {
+    .slideshow-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
+    .prev-btn {
+        left: 10px;
+    }
+    .next-btn {
+        right: 10px;
+    }
+    .image-modal-img {
+        max-width: 95vw;
+    }
+}
+
+.close-modal {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 35px;
+    font-weight: 300;
+    color: #888;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-modal:hover {
+    color: var(--primary-blue);
+}
+
+.font-weight-500 {
+    font-weight: 500;
+}
+
+.qr-box {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.qr-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border: 1px solid #eee;
+    padding: 25px; /* Thêm padding khi là hộp quà */
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.qr-image.reveal-qr:hover {
+    transform: scale(1.05) rotate(5deg);
+    background-color: #fff9f9;
+}
+
+.qr-image:not(.reveal-qr) {
+    padding: 10px; /* Thu nhỏ padding khi đã là QR */
+}
+
+/* Inline QR Section Background Override (Options) */
+.inline-qr-container {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.inline-qr-container .qr-box {
+    flex: 1;
+    max-width: 300px;
+    /* Limit size so it doesn't get too bloated */
+}
+
+.mt-4-mobile {
+    margin-top: 0;
+}
+
+/* -------------------------------------
+   Thank You Footer 
+-------------------------------------- */
+.thank-you-footer {
+    position: relative;
+    width: 100%;
+    /* Dùng 100% thay vì 100vw tránh gây overflow */
+    height: 70vh;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-top: 30px;
+}
+
+.thank-you-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.thank-you-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Gradient tối dần để chữ dễ đọc */
+    background: linear-gradient(to bottom, rgba(31, 49, 71, 0.7), rgba(45, 71, 102, 0.5));
+    z-index: 2;
+}
+
+.thank-you-content {
+    position: relative;
+    z-index: 3;
+    padding: 0 20px;
+}
+
+.thank-you-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 0 auto;
+    font-weight: 300;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* YouTube Player Hidden */
+.youtube-hidden {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Floating Music Button */
+.floating-music-btn {
+    position: fixed;
+    bottom: 125px; /* Đẩy lên cao hơn chút để nhường nút quà to bên dưới */
+    right: 30px; /* Căn lề phải bằng với hộp quà */
+    width: 65px; /* Cùng kích thước hộp quà */
+    height: 65px; /* Cùng kích thước hộp quà */
+    background-color: #fff;
+    color: var(--primary-blue);
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Đồng bộ đổ bóng với hộp quà */
+    cursor: pointer;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px; /* Phóng to đĩa than */
+    transition: all 0.3s ease;
+}
+
+.floating-music-btn:hover {
+    transform: scale(1.1);
+}
+
+.floating-music-btn.playing {
+    animation: musicSpin 4s linear infinite;
+}
+
+@keyframes musicSpin {
+    100% { transform: rotate(360deg); }
+}
+
+/* Floating Gift Button & Modal */
+.floating-gift-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 65px;
+    height: 65px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: gentleBounce 2s infinite ease-in-out;
+}
+
+@keyframes gentleBounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.floating-gift-btn:hover {
+    transform: scale(1.1);
+    animation: none;
+}
+
+.floating-gift-btn img {
+    width: 35px;
+    height: 35px;
+}
+
+.countdown-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.countdown-heart {
+    font-size: 1.5rem;
+    animation: pulse 1.5s infinite;
+}
+
+/* ANIMATIONS (SCROLL + ENTRANCE) */
+.blur-in-scroll,
+.flip-up-scroll,
+.zoom-out-scroll {
+    opacity: 0;
+    transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform, filter;
+}
+
+.blur-in-scroll {
+    transform: translateY(30px);
+    filter: blur(8px);
+}
+
+.flip-up-scroll {
+    transform: perspective(1000px) rotateX(-15deg) translateY(40px);
+}
+
+.zoom-out-scroll {
+    transform: scale(1.05);
+}
+
+.blur-in-scroll.show {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+.flip-up-scroll.show {
+    opacity: 1;
+    transform: perspective(1000px) rotateX(0) translateY(0);
+}
+
+.zoom-out-scroll.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Slideshow entrance animation */
+.memories-slideshow {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.memories-slideshow.show-slideshow {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .cursive-heading {
+        font-size: 3.5rem;
+    }
+
+    .section-title {
+        font-size: 2.8rem;
+    }
+
+    .date-day {
+        font-size: 3.5rem;
+    }
+
+    .hero-image-container {
+        height: 90vh;
+        max-width: 100%;
+        display: block;
+    }
+
+    .hero-image {
+        width: 100%;
+        height: 100%;
+        background-position: center;
+        /* background-size: cover được kế thừa từ rule chính */
+    }
+
+    .event-date-large {
+        padding: 15px 10px;
+        width: 100%;
+    }
+
+    .date-middle {
+        gap: 15px;
+    }
+
+    .date-month,
+    .date-year {
+        font-size: 1rem;
+    }
+
+    .hero-overlay-text {
+        flex-direction: row;
+        /* Chữ ngang trên điện thoại */
+        gap: 10px;
+        bottom: 10%;
+    }
+
+    .hero-names {
+        font-size: 3.5rem;
+        /* Bằng với cỡ chữ Save the Date */
+    }
+
+    .hero-ampersand {
+        font-size: 1.8rem;
+    }
+
+    .hero-overlay-text {
+        max-width: 100vw;
+        overflow: hidden;
+        /* Không cho chữ tràn ra cạnh viewport */
+    }
+
+    .memories-slideshow {
+        width: 100%;
+        max-width: 100%;
+        aspect-ratio: 4 / 3;
+        /* Vuông hơn xíu trên mobile cho vừa màn dọc, đổi về tỉ lệ 16/9 nếu ảnh bạn nằm ngang (16/9) */
+        border-radius: 8px;
+    }
+
+    .mem-slide-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+    }
+
+    .mem-prev-btn { left: 8px; }
+    .mem-next-btn { right: 8px; }
+
+    .white-section {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    .thank-you-text {
+        font-size: 0.95rem;
+    }
+
+    .inline-qr-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .mt-4-mobile {
+        margin-top: 1.5rem;
+    }
+}
