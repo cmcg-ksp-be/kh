@@ -6,18 +6,18 @@
 
 const CONFIG = {
     // 1. TÊN VÀ TIÊU ĐỀ
-    title: "An & Hải Wedding",
-    groomName: "An", // Tên chú rể hiển thị trên ảnh đầu tiên
-    brideName: "Hải",    // Tên cô dâu hiển thị trên ảnh đầu tiên
+    title: "Hải & An Wedding",
+    groomName: "Hải", // Tên chú rể hiển thị trên ảnh đầu tiên
+    brideName: "An",    // Tên cô dâu hiển thị trên ảnh đầu tiên
 
     // 2. THÔNG TIN SỰ KIỆN CHÍNH
     eventTitle: "LỄ THÀNH HÔN ĐƯỢC TỔ CHỨC VÀO LÚC",
     eventTime: "15 GIỜ 30 PHÚT",
-    eventDayOfWeek: "CHỦ NHẬT",
+    eventDayOfWeek: "THỨ BẢY",
     eventMonth: "THÁNG 3",
     eventDate: "28",
     eventYear: "NĂM 2026",
-    eventLunarDate: "(Tức ngày 11 tháng 02 năm Bính Ngọ)",
+    eventLunarDate: "(Tức ngày 10 tháng 02 năm Bính Ngọ)",
     eventVenue: "Tư gia nhà trai",
     eventAddress: "Địa chỉ: Số 18, Phố Mới, Hát Môn, Hà Nội",
     mapLink: "https://maps.app.goo.gl/VN4kSZgy2ec9fYZd7?g_st=ifm", // Thay bằng link thật
@@ -65,14 +65,16 @@ const CONFIG = {
     // 8. TÀI KHOẢN NGÂN HÀNG (MÚC QUÀ)
     banking: {
         groom: {
+             bank: "MB Bank",
+            account: "0977109988",
+            qrImg: "images/qr1.jpg"
+        },
+        bride: {
+           
+
             bank: "Vietcombank",
             account: "020100050202",
             qrImg: "images/qr2.jpg"
-        },
-        bride: {
-            bank: "MB Bank",
-            account: "0977109988",
-            qrImg: "images/qr1.jpg"
         }
     },
 
