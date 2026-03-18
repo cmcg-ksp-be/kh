@@ -12,12 +12,12 @@ const CONFIG = {
 
     // 2. THÔNG TIN SỰ KIỆN CHÍNH
     eventTitle: "LỄ THÀNH HÔN ĐƯỢC TỔ CHỨC VÀO LÚC",
-    eventTime: "10 GIỜ 30 PHÚT",
+    eventTime: "15 GIỜ 30 PHÚT",
     eventDayOfWeek: "CHỦ NHẬT",
     eventMonth: "THÁNG 3",
     eventDate: "28",
     eventYear: "NĂM 2026",
-    eventLunarDate: "(Tức ngày 04 tháng 02 năm Bính Ngọ)",
+    eventLunarDate: "(Tức ngày 11 tháng 02 năm Bính Ngọ)",
     eventVenue: "Tư gia nhà trai",
     eventAddress: "Địa chỉ: Số 18, Phố Mới, Hát Môn, Hà Nội",
     mapLink: "https://maps.app.goo.gl/VN4kSZgy2ec9fYZd7?g_st=ifm", // Thay bằng link thật
